@@ -10,3 +10,7 @@ Will toggle the active state of an array of bojects for all players, and keep it
 
 ### MasterOnlyInteract
 Will check if the user interacting with an object is the master, and if they are will call the configuerd event.
+
+### Reset
+![setup example](https://i.imgur.com/91Bmms0.png "Example picture")
+A script that will move all children objects of the "Parent Object" to the position of the "Reset Location" on an Interact event.
