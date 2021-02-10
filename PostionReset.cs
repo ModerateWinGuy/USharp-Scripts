@@ -35,7 +35,6 @@ public class PostionReset : UdonSharpBehaviour
     {
 
         Networking.SetOwner(Networking.LocalPlayer, ParentObject);
-        //SyncDrop();
 
         for (int i = 0; i < ParentObject.transform.childCount; i++)
         {
@@ -44,7 +43,6 @@ public class PostionReset : UdonSharpBehaviour
             var pos = ResetLocation.transform.position;
             Networking.SetOwner(Networking.LocalPlayer, child.gameObject);
 
-            //pos.z += (UnityEngine.Random.Range(0, 30) / 1000);
             child.transform.position = pos;
             child.transform.localRotation = Quaternion.Euler(180, 0, 0);            
         }
@@ -54,13 +52,6 @@ public class PostionReset : UdonSharpBehaviour
     {
         for (int i = 0; i < objs.Length; i++)
         {            
-            //VRC_Pickup pickup = (VRC_Pickup)objs[i].GetComponent(typeof(VRC_Pickup));
-
-            //if (pickup.IsHeld)
-            //{
-            //    pickup.Drop();
-            //}
-
             if (Networking.IsOwner(objs[i].gameObject))
             {
                 Networking.SetOwner(Networking.LocalPlayer, objs[i].gameObject);
