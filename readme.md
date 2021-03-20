@@ -15,3 +15,9 @@ Will check if the user interacting with an object is the master, and if they are
 A script that will move all children objects of the "Parent Object" to the position of the "Reset Location" on an Interact event.
 
 ![setup example](https://i.imgur.com/91Bmms0.png "Example setup, to respawn a ball at a reset point")
+
+### EmptyAreaEvent
+Set the Trigger to the trigger gameobject you want to check the inside of for players.
+Set the Recheck interval to how often you want the script to check for users within the region.
+Set the event target and event name, this will be called when no users are found inside the region.
+The event is global by defailt, if you want it to be local you can disabled EventIsGlobal
