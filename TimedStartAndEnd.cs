@@ -26,14 +26,7 @@ public class TimedStartAndEnd : UdonSharpBehaviour
     {
         Debug.Log("Starting timed event");
         counting = true;
-        try
-        {
-            startTarget.SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, startEventName);
-        }
-        catch (System.Exception)
-        {
-            Debug.Log("No start even provided");
-        }        
+        startTarget.SendCustomNetworkEvent(VRC.Udon.Common.Interfaces.NetworkEventTarget.All, startEventName);      
     }
 
     private void Update()
