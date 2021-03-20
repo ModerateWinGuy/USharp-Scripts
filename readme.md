@@ -21,3 +21,7 @@ Set the Trigger to the trigger gameobject you want to check the inside of for pl
 Set the Recheck interval to how often you want the script to check for users within the region.
 Set the event target and event name, this will be called when no users are found inside the region.
 The event is global by defailt, if you want it to be local you can disabled EventIsGlobal
+
+### TimedStartAndEnd
+Call StartEvent to start the timer, it will aos fire a startevent if provided one.
+After timerLength seconds, the end event will fire and the timer will stop.

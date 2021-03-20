@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
+using VRC.Udon;
 
 public class EmptyAreaEvent : UdonSharpBehaviour
 {    
     public GameObject trigger;              //The trigger to check for the presence of users
-    public UdonSharpBehaviour EventTarget; 
+    public UdonBehaviour EventTarget; 
     public float recheckInterval = 60;      //How often, in seconds, the script should check for empty
     public string EmptyEventName;           //Name of event to call if no players are found within the region
     public bool EventIsGlobal = true;       //If you want the event sent globally or locally
