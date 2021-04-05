@@ -23,5 +23,5 @@ Set the event target and event name, this will be called when no users are found
 The event is global by defailt, if you want it to be local you can disabled EventIsGlobal
 
 ### TimedStartAndEnd
-Call StartEvent to start the timer, it will aos fire a startevent if provided one.
+Call StartEvent to start the timer, it will also fire a startevent if provided one.
 After timerLength seconds, the end event will fire and the timer will stop.
