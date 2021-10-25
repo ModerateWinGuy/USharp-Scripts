@@ -25,3 +25,20 @@ The event is global by defailt, if you want it to be local you can disabled Even
 ### TimedStartAndEnd
 Call StartEvent to start the timer, it will also fire a startevent if provided one.
 After timerLength seconds, the end event will fire and the timer will stop.
+
+### AreaUserCounter 
+Counts the amount of users inside a trigger object and then displays this number onto a text field UI object.
+Made to add counters to show hoiw many people are in a room.
+
+### ShowForMaster
+A simple script that will display all objects in the provided array and hide them for others.
+Will update to new master whenever the master leaves the instance too.
+
+### SyncedCheckbox
+When placed on a UI Checkbox element will sync the state of the checkbox between all players, and toggle any provided objects to an on or off state depending on which field they are provided into.
+
+### LeaveDisable
+Locally disables any provided objects when a user leaves an area. For things like disabling a mirror when a user walks away.
+
+### EnableForUsernames
+Enables objects for anyone who's username matches the ones in the provided array, otherwise disables the object.
