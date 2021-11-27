@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using VRC.SDKBase;
 using VRC.Udon;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Continuous)]
 public class AreaUserCounter : UdonSharpBehaviour
 {
     [Header("Trigger region user counter")]

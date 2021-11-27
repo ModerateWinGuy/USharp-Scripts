@@ -6,6 +6,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using UdonSharp;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class SyncedCheckbox : UdonSharpBehaviour
 {
 
@@ -28,9 +29,9 @@ public class SyncedCheckbox : UdonSharpBehaviour
         if (!Networking.IsOwner(toggle.gameObject))
         {
             Networking.SetOwner(Networking.LocalPlayer, toggle.gameObject);
-            Networking.SetOwner(Networking.LocalPlayer, this.gameObject);            
+            Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
         }
-            
+
 
         ToggleValueChanged(toggle);
     }
