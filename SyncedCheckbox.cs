@@ -24,17 +24,47 @@ public class SyncedCheckbox : UdonSharpBehaviour
     [UdonSynced]
     public bool toggleState;
 
+    private void Start()
+    {
+        ToggleObjects();
+    }
+
+
     public override void Interact()
     {
         if (!Networking.IsOwner(toggle.gameObject))
         {
             Networking.SetOwner(Networking.LocalPlayer, toggle.gameObject);
-            Networking.SetOwner(Networking.LocalPlayer, this.gameObject);
+            Networking.SetOwner(Networking.LocalPlayer, this.gameObject);            
         }
-
+            
 
         ToggleValueChanged(toggle);
     }
+
+    public override void OnPlayerJoined(VRC.SDKBase.VRCPlayerApi player) 
+    {
+        if (Networking.IsClogged)
+        {
+            if (Networking.IsOwner(toggle.gameObject))
+            {
+                SendCustomEventDelayedSeconds("_RetrySync", 3, VRC.Udon.Common.Enums.EventTiming.Update);
+            }
+        }
+    }
+
+    public void _RetrySync()
+    {
+        if (Networking.IsClogged)
+        {
+            SendCustomEventDelayedSeconds("_RetrySync", 3, VRC.Udon.Common.Enums.EventTiming.Update);
+        }
+        else
+        {
+            RequestSerialization();
+        }
+    }
+
 
     //Output the new state of the Toggle into Text
     void ToggleValueChanged(Toggle change)
@@ -51,10 +81,10 @@ public class SyncedCheckbox : UdonSharpBehaviour
             return;
 
         toggle.isOn = toggleState;
-        Debug.Log("deserilizationing");
         ToggleObjects();
     }
 
+    // For turning off checkbox progromatically (IE unlocking empty rooms)
     public void SetToggleOff()
     {
         if (!Networking.IsMaster) return;
@@ -76,13 +106,19 @@ public class SyncedCheckbox : UdonSharpBehaviour
 
     private void ToggleObjects()
     {
-        foreach (var item in objects)
+        if(objects != null)
         {
-            item.SetActive(toggleState);
+            foreach (var item in objects)
+            {
+                item.SetActive(toggleState);
+            }
         }
-        foreach (var item in offObjects)
+        if(offObjects != null)
         {
-            item.SetActive(!toggleState);
+            foreach (var item in offObjects)
+            {
+                item.SetActive(!toggleState);
+            }
         }
     }
 }

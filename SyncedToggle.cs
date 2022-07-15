@@ -6,6 +6,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using UdonSharp;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class SyncedToggle : UdonSharpBehaviour
 {
 
@@ -21,16 +22,10 @@ public class SyncedToggle : UdonSharpBehaviour
     [Tooltip("If the objects are initially on or off")]
     [UdonSynced]
     public bool toggleState;
-	
+
     public bool RequireMaster;
-	
-	void Start()
-    {
-        if (Networking.IsMaster)
-        {
-            ToggleObjects();
-        }
-    }
+
+
 
     public override void Interact()
     {

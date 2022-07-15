@@ -11,31 +11,15 @@ public class ToggleAllColliders : UdonSharpBehaviour
 
     void Start()
     {
-        foreach (var o in ObjectColliders)
-        {
-            Collider[] colList = o.GetComponentsInChildren<Collider>();
-
-            foreach (Collider collider in colList)
-            {
-                collider.enabled = !collider.enabled;
-            }
-        }
+        ToggleColliders();
     }
 
     public override void Interact()
     {
-        foreach (var o in ObjectColliders)
-        {
-            Collider[] colList = o.GetComponentsInChildren<Collider>();
-
-            foreach (Collider collider in colList)
-            {
-                collider.enabled = !collider.enabled;
-            }
-        }
+        ToggleColliders();
     }
 
-    void ToggleColliders()
+    private void ToggleColliders()
     {
         foreach (var o in ObjectColliders)
         {
