@@ -33,19 +33,16 @@ public class DJBooth : UdonSharpBehaviour
 
     public override void OnPlayerTriggerEnter(VRCPlayerApi player)
     {
-        Debug.Log("OnPlayerTriggerEnter triggered");
         SetPlayerAudioOn(player);
     }
 
     public override void OnPlayerTriggerExit(VRCPlayerApi player)
     {
-        Debug.Log("OnPlayerTriggerExit triggered");
         SetPlayerAudioDefault(player);
     }
 
     public override void OnPlayerTriggerStay(VRCPlayerApi player)
     {
-        Debug.Log("OnPlayerTriggerEnter triggered");
         SetPlayerAudioOn(player);
     }
 
