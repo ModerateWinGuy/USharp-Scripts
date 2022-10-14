@@ -4,7 +4,7 @@ using UnityEngine;
 using VRC.SDKBase;
 using VRC.Udon;
 
-public class RunForMaster : UdonSharpBehaviour
+public class ShowForMaster : UdonSharpBehaviour
 {
     [Tooltip("The Objects that will be enabled for the master of the instance")]
     public GameObject[] ObjectsToShow;
